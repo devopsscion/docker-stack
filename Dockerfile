@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 
 ADD buildtools/utils/base-utils.sh /installs/base-utils.sh
 ADD logging/papertrail.sh /installs/papertrail.sh
