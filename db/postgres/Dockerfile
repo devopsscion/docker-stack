@@ -17,7 +17,7 @@
 #
 
 #FROM ubuntu:trusty
-FROM devopsscion/base:postgres-automation-enhancements
+FROM devopsscion/base:xenial
 MAINTAINER josh < josh [at] devops {dot} center>
 
 ADD postgres.sh /installs/postgres.sh

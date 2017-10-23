@@ -1,4 +1,4 @@
-FROM devopsscion/python-nginx-pgpool:postgres-automation-enhancements
+FROM devopsscion/python-nginx-pgpool:xenial
 
 RUN mkdir /repos
 WORKDIR /repos

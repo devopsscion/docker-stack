@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-FROM devopsscion/python:postgres-automation-enhancements
+FROM devopsscion/python:xenial
 MAINTAINER josh < josh [at] devops {dot} center>
 
 ENV POSTGRES_VERSION 9.4
