@@ -2,4 +2,4 @@ os:
   - linux
 sudo: required
 script:
-  - travis_wait ./compile.sh
+  - travis_wait 60 ./compile.sh
