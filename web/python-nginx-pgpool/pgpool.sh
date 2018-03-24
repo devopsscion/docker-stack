@@ -18,8 +18,8 @@ sudo sudo apt-fast -y -q install postgresql-client-$POSTGRES_VERSION libpq5 libp
 
 #not installing postgres server, so manually create user
 #EDIT not needed
-#sudo useradd postgres -m -s /bin/bash
-#RUN groupadd postgres
+id -u postgres &>/dev/null || sudo useradd postgres -m -s /bin/bash
+getent group postgres || groupadd postgres
 sudo usermod -a -G postgres postgres
 
 sudo mkdir -p /installs
@@ -27,7 +27,7 @@ pushd /installs
 sudo wget --quiet http://www.pgpool.net/download.php?f=pgpool-II-$PGPOOL_VERSION.tar.gz -O pgpool-II-$PGPOOL_VERSION.tar.gz
 sudo tar -xvf pgpool-II-$PGPOOL_VERSION.tar.gz && \
 pushd pgpool-II-$PGPOOL_VERSION 
-sudo ./configure && sudo make --silent && sudo make --silent install
+sudo ./configure && sudo make --silent && sudo make --silent -j$(nproc) install
 
 sudo mkdir -p -m 700 /etc/pgpool2 && sudo chown -R postgres:postgres /etc/pgpool2
 sudo mkdir -p -m 755 /var/log/pgpool && sudo chown -R postgres:postgres /var/log/pgpool
