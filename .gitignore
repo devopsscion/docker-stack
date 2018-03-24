@@ -25,3 +25,5 @@ stack*log
 buildtools.log
 jenkins.log
 buildtoolspush.log
+
+.vagrant/
