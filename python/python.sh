@@ -8,17 +8,17 @@ sudo add-apt-repository -y ppa:saiarcot895/myppa && \
     sudo apt-get -qq update && \
     sudo apt-get -qq -y install apt-fast
 
-export GIT_VERSION=2.1.2
-export PYTHON_VERSION=2.7.10
+export GIT_VERSION=2.16.3
+export PYTHON_VERSION=3.6.4
 
 sudo apt-fast -qq update
 sudo apt-fast -qq -y install wget sudo vim curl build-essential
 
 sudo apt-fast -qq -y install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
 pushd /tmp
-sudo wget --quiet https://www.kernel.org/pub/software/scm/git/git-2.1.2.tar.gz
-sudo tar -xvf git-2.1.2.tar.gz
-pushd git-2.1.2 
+sudo wget --quiet https://www.kernel.org/pub/software/scm/git/git-${GIT_VERSION}.tar.gz
+sudo tar -xvf git-${GIT_VERSION}.tar.gz
+pushd git-${GIT_VERSION}
 sudo make --silent prefix=/usr/local all && sudo make --silent prefix=/usr/local install
 popd
 popd
@@ -41,15 +41,15 @@ pushd /tmp
 sudo wget --quiet https://bootstrap.pypa.io/get-pip.py && sudo python get-pip.py
 sudo ln -s /usr/local/opt/python/bin/pip /usr/local/bin/pip
 
-sudo pip install -U setuptools-git==1.1 wheel==0.24.0 virtualenv==1.11.6 
-sudo pip install -U pip==7.1.0
-#RUN pip install -U distribute==0.7.3  setuptools==8.3
+sudo pip install -U setuptools-git==1.2 wheel==0.29.0 pipenv==11.9.0
+sudo pip install --upgrade pip
+#RUN pip install -U distribute==0.7.3  setuptools==39.0.1
 
 sudo mkdir -p /wheelhouse
 
 #ipython
-sudo apt-fast -qq -y install libncurses5-dev
-sudo pip install readline==6.2.4.1
+#sudo apt-fast -qq -y install libncurses5-dev
+#sudo pip install readline==6.2.4.1
 
 sudo mkdir -p /data/scratch && \
     sudo chmod -R 777 /data/scratch
