@@ -1,5 +1,7 @@
 os:
   - linux
 sudo: required
+before_install:
+  - sudo apt-get -y --purge remove mysql* postgresql* redis* 
 script:
   - travis_wait 60 ./compile.sh
