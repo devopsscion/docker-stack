@@ -17,7 +17,7 @@
 #
 
 
-FROM ubuntu:bionic
+FROM ubuntu:xenial
 MAINTAINER josh < josh [at] devops {dot} center>
 
 RUN apt-get update

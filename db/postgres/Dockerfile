@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-#FROM ubuntu:bionic
+#FROM ubuntu:xenial
 FROM devopsscion/base:postgres-automation-enhancements
 MAINTAINER josh < josh [at] devops {dot} center>
 

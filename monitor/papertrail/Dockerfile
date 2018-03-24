@@ -16,6 +16,6 @@
 # limitations under the License.
 #
 
-FROM ubuntu:bionic
+FROM ubuntu:xenial
 MAINTAINER josh < josh [at] devops {dot} center>
 
