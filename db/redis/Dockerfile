@@ -17,7 +17,7 @@
 #
 
 
-FROM ubuntu:trusty
+FROM ubuntu:bionic
 MAINTAINER josh < josh [at] devops {dot} center>
 
 RUN apt-get update

@@ -16,6 +16,6 @@
 # limitations under the License.
 #
 
-FROM ubuntu:trusty
+FROM ubuntu:bionic
 MAINTAINER josh < josh [at] devops {dot} center>
 
