@@ -39,11 +39,11 @@ sudo locale-gen en_US.UTF-8 && \
 #USER root
 #https://coderwall.com/p/cwe2_a/backup-and-recover-a-postgres-db-using-wal-e
 sudo apt-fast -qq -y install libffi-dev
-sudo pip install --upgrade distribute
-sudo pip install -U six && \
-    sudo pip install wal-e==0.8.1
-sudo apt-fast -qq install -y daemontools lzop pv
-sudo pip install -U requests
+#sudo pip install --upgrade distribute
+#sudo pip install -U six && \
+#    sudo pip install wal-e==0.8.1
+#sudo apt-fast -qq install -y daemontools lzop pv
+#sudo pip install -U requests
 
 sudo mkdir -p ${POSTGRESDBDIR}
 sudo mkdir -p /media/data/postgres/xlog/transactions
@@ -52,9 +52,9 @@ sudo chown -R postgres:postgres /media/data/postgres
 sudo chown -R postgres:postgres /var/lib/postgresql
 
 
-sudo su -c "./config.sh ${VPC_CIDR} ${DATABASE}" -s /bin/sh postgres
+#sudo su -c "./config.sh ${VPC_CIDR} ${DATABASE}" -s /bin/sh postgres
 
-./xlog.sh
+#./xlog.sh
 ./supervisorconfig.sh
 
 sudo service postgresql stop
@@ -62,6 +62,6 @@ sudo service postgresql stop
 #disable init.d autostart
 sudo update-rc.d postgresql disable
 
-sudo pip install s3cmd==1.6.0
-sudo pip install -U setuptools
-sudo pip install -U pip
+#sudo pip install s3cmd==1.6.0
+#sudo pip install -U setuptools
+#sudo pip install -U pip

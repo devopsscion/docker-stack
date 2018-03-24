@@ -15,3 +15,7 @@ popd
 pushd web/python-nginx-pgpool-libsodium/
 
 popd
+
+pushd db/postgres/
+./postgres.sh
+popd
