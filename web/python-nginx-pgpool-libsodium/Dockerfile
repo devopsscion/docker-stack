@@ -11,3 +11,5 @@ RUN git clone https://github.com/data-luminosity/message
 
 WORKDIR /repos/message
 RUN pip3 install -r requirements.txt
+
+sudo apt-get install -yqq libgdal-dev
