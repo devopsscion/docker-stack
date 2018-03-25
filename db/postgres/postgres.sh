@@ -50,7 +50,7 @@ sudo chown -R postgres:postgres /media/data/postgres
 sudo chown -R postgres:postgres /var/lib/postgresql
 
 
-#sudo su -c "./config.sh ${VPC_CIDR} ${DATABASE}" -s /bin/sh postgres
+sudo su -c "./config.sh ${VPC_CIDR} ${DATABASE}" -s /bin/sh postgres
 
 #./xlog.sh
 ./supervisorconfig.sh
