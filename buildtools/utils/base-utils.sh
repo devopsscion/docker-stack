@@ -7,7 +7,7 @@ sudo add-apt-repository -y ppa:saiarcot895/myppa && \
     sudo apt-get -qq update && \
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq -y install apt-fast
 
-sudo apt-fast -qqy install locales
+sudo apt-fast -qq -y install locales
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 
 sudo apt-fast -qq -y install git python-dev python-pip wget sudo vim supervisor curl
