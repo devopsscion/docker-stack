@@ -17,7 +17,7 @@
 #
 
 #FROM ubuntu:xenial
-FROM devopsscion/base:postgres-automation-enhancements
+FROM devopsscion/base:postgres-automation-enhancements-2.0
 MAINTAINER josh < josh [at] devops {dot} center>
 
 

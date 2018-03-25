@@ -1,1 +1,3 @@
-devops_version=postgres-automation-enhancements
+devops_version=postgres-automation-enhancements-2.0
+dcPREFIX=devopsscion
+dcSTACK_VERSION=postgres-automation-enhancements-2.0

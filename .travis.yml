@@ -2,8 +2,17 @@ matrix:
   include:
       - os: linux
         services: docker
+        #https://docs.travis-ci.com/user/docker/
+        env:
+          - DOCKER_COMPOSE_VERSION=1.16.1
+        before_install:
+          - sudo rm /usr/local/bin/docker-compose
+          - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+          - chmod +x docker-compose
+          - sudo mv docker-compose /usr/local/bin
         script:
-         - ./stack.sh
+          - cat VERSION > .env
+          - docker-compose -f stack.yml build
       - os: linux
         sudo: required
         before_install:

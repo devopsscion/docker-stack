@@ -1,3 +1,5 @@
+.env
+
 .DS_Store
 docker-enter*
 log.txt
@@ -27,3 +29,4 @@ jenkins.log
 buildtoolspush.log
 
 .vagrant/
+ubuntu-xenial-16.04-cloudimg-console.log

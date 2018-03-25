@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-FROM devopsscion/66ccff.web:postgres-automation-enhancements
+FROM devopsscion/66ccff.web:postgres-automation-enhancements-2.0
 MAINTAINER josh < josh [at] devops {dot} center>
 
 RUN rm -rf /etc/supervisor/conf.d/nginx.conf && rm -rf /etc/supervisor/conf.d/uwsgi.conf
