@@ -26,6 +26,9 @@ services:
         image: ${dcPREFIX}/python-nginx-pgpool-libsodium:${dcSTACK_VERSION}
         depends_on:
           - python-nginx-pgpool
+        environment:
+          - PGPOOL_CONFIG_FILE=/etc/pgpool2/pgpool.conf.one
+          - UWSGI_PROCESSES=3
     db-postgres:
         build: db/postgres
         image: ${dcPREFIX}/db-postgres:${dcSTACK_VERSION}
