@@ -27,7 +27,7 @@ pushd /installs
 sudo wget --quiet http://www.pgpool.net/download.php?f=pgpool-II-$PGPOOL_VERSION.tar.gz -O pgpool-II-$PGPOOL_VERSION.tar.gz
 sudo tar -xvf pgpool-II-$PGPOOL_VERSION.tar.gz && \
 pushd pgpool-II-$PGPOOL_VERSION 
-sudo ./configure && sudo make --silent && sudo make --silent -j$(nproc) install
+sudo ./configure && sudo make --silent -j$(nproc) && sudo make --silent install
 
 sudo mkdir -p -m 700 /etc/pgpool2 && sudo chown -R postgres:postgres /etc/pgpool2
 sudo mkdir -p -m 755 /var/log/pgpool && sudo chown -R postgres:postgres /var/log/pgpool
@@ -41,8 +41,7 @@ sudo chown -R postgres:postgres /etc/pgpool2 && \
     sudo chown -R postgres:postgres  /var/run/postgresql/
 
 #Fix locale warnings when starting postgres
-sudo locale-gen en_US.UTF-8
-sudo dpkg-reconfigure locales
+#sudo locale-gen en_US.UTF-8 && sudo dpkg-reconfigure locales
 
 popd
 popd
