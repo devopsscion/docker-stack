@@ -12,7 +12,7 @@ matrix:
           - sudo mv docker-compose /usr/local/bin
         script:
           - cat VERSION > .env
-          - docker-compose -f stack.yml build
+          - travis_wait 60 docker-compose -f stack.yml build
       - os: linux
         sudo: required
         before_install:
