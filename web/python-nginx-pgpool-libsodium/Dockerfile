@@ -9,6 +9,6 @@ RUN pip3 install -r requirements.txt
 
 RUN sudo apt-get install -yqq libgdal-dev
 
-ADD libosodium.sh /installs/libsodium.sh
+ADD libsodium.sh /installs/libsodium.sh
 WORKDIR /installs
 RUN ./libsodium.sh
