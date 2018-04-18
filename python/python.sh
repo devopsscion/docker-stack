@@ -8,8 +8,8 @@ sudo add-apt-repository -y ppa:saiarcot895/myppa && \
     sudo apt-get -qq update && \
     sudo apt-get -qq -y install apt-fast
 
-export GIT_VERSION=2.16.3
-export PYTHON_VERSION=3.6.4
+export GIT_VERSION=2.17.0
+export PYTHON_VERSION=3.6.5
 
 sudo apt-fast -qq update
 sudo apt-fast -qq -y install wget sudo vim curl build-essential
@@ -17,9 +17,9 @@ sudo apt-fast -qq -y install wget sudo vim curl build-essential
 sudo apt-fast -qq -y install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
 pushd /tmp
 wget --quiet --continue https://www.kernel.org/pub/software/scm/git/git-${GIT_VERSION}.tar.gz
-tar -xvf git-${GIT_VERSION}.tar.gz
+test -e git-${GIT_VERSION} || tar -xvf git-${GIT_VERSION}.tar.gz
 pushd git-${GIT_VERSION}
-make --silent prefix=/usr/local all && sudo make --silent prefix=/usr/local install
+make -j$(nproc) --silent prefix=/usr/local all && sudo make --silent prefix=/usr/local install
 popd
 popd
 
@@ -27,10 +27,10 @@ sudo apt-fast -qq -y install sqlite3 libsqlite3-dev libssl-dev zlib1g-dev libxml
 
 pushd /tmp
 wget --quiet --continue https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz -O /tmp/Python-${PYTHON_VERSION}.tgz
-tar -xvf Python-${PYTHON_VERSION}.tgz
+test -e Python-${PYTHON_VERSION} || tar -xvf Python-${PYTHON_VERSION}.tgz
 pushd Python-${PYTHON_VERSION}
 ./configure CFLAGSFORSHARED="-fPIC" CCSHARED="-fPIC" --quiet CCSHARED="-fPIC" --prefix=/usr/local/opt/python --exec-prefix=/usr/local/opt/python CCSHARED="-fPIC" \
-            && make clean && make --silent -j$(nproc) && sudo make --silent install
+            && make clean && make -j$(nproc) --silent -j$(nproc) && sudo make --silent install
 popd
 
 sudo ln -sf /usr/local/opt/python/bin/python3 /usr/local/bin/python3
