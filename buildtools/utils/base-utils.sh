@@ -1,4 +1,8 @@
 #!/bin/bash -ev
+
+sudo apt-get -qq update
+sudo apt-get upgrade -qqy
+
 sudo apt-get -qq update && sudo apt-get -qq -y install python-software-properties software-properties-common && \
     sudo add-apt-repository "deb http://gb.archive.ubuntu.com/ubuntu $(lsb_release -sc) universe" && \
     sudo apt-get -qq update
@@ -11,8 +15,8 @@ sudo apt-fast -qq -y install locales
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 
-sudo apt-fast -qq -y install git python-dev python-pip wget sudo vim supervisor curl
-sudo pip install awscli==1.10.6
+sudo apt-fast -qq -y install git wget sudo vim supervisor curl
+#sudo pip install awscli==1.10.6
 
 sudo apt-fast -y install ncdu ntp fail2ban htop
 

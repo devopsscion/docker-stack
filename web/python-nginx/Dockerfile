@@ -23,6 +23,7 @@ EXPOSE 80 8000 443
 
 ADD nginxenv.sh /installs/nginxenv.sh
 ADD nginx.sh /installs/nginx.sh
+ADD nginx-config.sh /installs/nginx-config.sh
 ADD conf /installs/conf
 WORKDIR /installs
 RUN ./nginx.sh

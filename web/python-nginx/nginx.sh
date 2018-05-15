@@ -10,13 +10,13 @@ pushd /tmp
 
 PCRE_VERSION=8.42
 
-wget --quiet ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${PCRE_VERSION}.tar.bz2 && \
+wget --quiet --continue ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${PCRE_VERSION}.tar.bz2 && \
     tar -xvf pcre-${PCRE_VERSION}.tar.bz2
 pushd pcre-${PCRE_VERSION}
 ./configure && make --silent -j$(nproc) && sudo make --silent install
 popd
 
-wget --quiet http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && tar -xvf nginx-$NGINX_VERSION.tar.gz
+wget --quiet --continue http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && tar -xvf nginx-$NGINX_VERSION.tar.gz
 pushd nginx-$NGINX_VERSION 
 ./configure --with-http_stub_status_module --with-http_ssl_module && make --silent -j$(nproc) && sudo make --silent install
 popd
@@ -34,8 +34,8 @@ sudo pip3 install uwsgi==$UWSGI_VERSION && \
 
 popd #/tmp
 
-sudo cp conf/nginx.conf /usr/local/nginx/conf/nginx.conf
-sudo cp conf/supervisor-nginx.conf /etc/supervisor/conf.d/nginx.conf
-sudo cp conf/supervisor-uwsgi.conf /etc/supervisor/conf.d/uwsgi.conf
-sudo cp conf/supervisor-rsyslogd.conf /etc/supervisor/conf.d/rsyslogd.conf
+#sudo cp conf/nginx.conf /usr/local/nginx/conf/nginx.conf
+#sudo cp conf/supervisor-nginx.conf /etc/supervisor/conf.d/nginx.conf
+#sudo cp conf/supervisor-uwsgi.conf /etc/supervisor/conf.d/uwsgi.conf
+#sudo cp conf/supervisor-rsyslogd.conf /etc/supervisor/conf.d/rsyslogd.conf
 
